@@ -41,7 +41,6 @@ courses = {
                      }
     }
 
-
 # For the following questions, you will find the
 #         for <key> in <dictionary>:
 #                    <block>
