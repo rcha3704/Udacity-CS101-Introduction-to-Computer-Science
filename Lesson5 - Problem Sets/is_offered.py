@@ -80,8 +80,6 @@ def is_offered(courses, course, hexamester):
     
 
 
-
-
 print is_offered(courses, 'cs101', 'apr2012')
 #>>> True
 
