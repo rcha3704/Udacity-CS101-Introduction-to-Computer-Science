@@ -71,14 +71,6 @@ Robin likes to play Call of Arms, Dwarves and Swords.\
 Freda is connected to Olive, John, Debra.\
 Freda likes to play Starfleet Commander, Ninja Hamsters, Seahorse Adventures."
 
-# example_input="John is connected to Bryant, Debra, Walter.\
-# John likes to play The Movie: The Game, The Legend of Corgi, Dinosaur Diner.\
-# Bryant is connected to Olive, Ollie, Freda, Mercedes.\
-# Bryant likes to play City Comptroller: The Fiscal Dilemma, Super Mushroom Man.\
-# Mercedes is connected to Walter, Robin, Bryant.\
-# Mercedes likes to play The Legend of Corgi, Pirates in Java Island, Seahorse Adventures."
-
-
 # ----------------------------------------------------------------------------- 
 # create_data_structure(string_input): 
 #   Parses a block of text (such as the one above) and stores relevant 
