@@ -71,14 +71,6 @@ Robin likes to play Call of Arms, Dwarves and Swords.\
 Freda is connected to Olive, John, Debra.\
 Freda likes to play Starfleet Commander, Ninja Hamsters, Seahorse Adventures."
 
-# example_input="John is connected to Bryant, Debra, Walter.\
-# John likes to play The Movie: The Game, The Legend of Corgi, Dinosaur Diner.\
-# Bryant is connected to Olive, Ollie, Freda, Mercedes.\
-# Bryant likes to play City Comptroller: The Fiscal Dilemma, Super Mushroom Man.\
-# Mercedes is connected to Walter, Robin, Bryant.\
-# Mercedes likes to play The Legend of Corgi, Pirates in Java Island, Seahorse Adventures."
-
-
 # ----------------------------------------------------------------------------- 
 # create_data_structure(string_input): 
 #   Parses a block of text (such as the one above) and stores relevant 
@@ -224,7 +216,7 @@ def get_secondary_connections(network, user):
         return None
     
     connections = get_connections(network, user)
-    # print connections
+   
     sec_connections = []
     
     for connection in connections:
@@ -316,9 +308,7 @@ def find_path_to_friend(network, user_A, user_B, visited=None):
     
     friends = get_connections(network, user_A)
     path = []
-    
-    # print user_A, friends
-    
+        
     if user_B in friends:
         path.append(user_A)
         path.append(user_B)
