@@ -71,6 +71,14 @@ Robin likes to play Call of Arms, Dwarves and Swords.\
 Freda is connected to Olive, John, Debra.\
 Freda likes to play Starfleet Commander, Ninja Hamsters, Seahorse Adventures."
 
+# example_input="John is connected to Bryant, Debra, Walter.\
+# John likes to play The Movie: The Game, The Legend of Corgi, Dinosaur Diner.\
+# Bryant is connected to Olive, Ollie, Freda, Mercedes.\
+# Bryant likes to play City Comptroller: The Fiscal Dilemma, Super Mushroom Man.\
+# Mercedes is connected to Walter, Robin, Bryant.\
+# Mercedes likes to play The Legend of Corgi, Pirates in Java Island, Seahorse Adventures."
+
+
 # ----------------------------------------------------------------------------- 
 # create_data_structure(string_input): 
 #   Parses a block of text (such as the one above) and stores relevant 
@@ -216,7 +224,7 @@ def get_secondary_connections(network, user):
         return None
     
     connections = get_connections(network, user)
-   
+    # print connections
     sec_connections = []
     
     for connection in connections:
@@ -308,7 +316,9 @@ def find_path_to_friend(network, user_A, user_B, visited=None):
     
     friends = get_connections(network, user_A)
     path = []
-        
+    
+    # print user_A, friends
+    
     if user_B in friends:
         path.append(user_A)
         path.append(user_B)
@@ -330,34 +340,61 @@ def find_path_to_friend(network, user_A, user_B, visited=None):
 # your network (like path_to_friend). Don't forget to comment your MYOP. You 
 # may give this procedure any name you want.
 
-# Replace this with your own procedure! You can also uncomment the lines below
-# to see how your code behaves. Have fun!
+# ----------------------------------------------------------------------------- 
+# popularity_chart(network): 
+#   Ranks people according to their popularity based on the number of connections they have.
+#   The person who has the most connections is ranked first while the one who has the least 
+#   number of connections is ranked the last.
+#   
+# Arguments:
+#   network: The network you created with create_data_structure. 
+# 
+# Return:
+#   A list showing people ordered by their populalirity in descending order.
+# 
+# Sample output:
+#   >>> print popularity_chart(network)
+#   >>> ['Bryant', 'Jennie', 'Debra', 'Walter', 'John', 'Levi', 'Mercedes', 'Ollie', 'Freda', 'Olive', 'Robin']
 
-# net = create_data_structure(example_input)
-# print net
-# net = create_data_structure('')
-# print net
-# print get_connections(net, "Debra")
-# print get_connections(net, "Rabia")
-# print get_connections(net, "Mercedes")
-# print get_games_liked(net, "John")
-# print add_connection(net, "John", "Freda")
-# print add_new_user(net, "Debra", []) 
-# print add_new_user(net, "Nick", ["Seven Schemers", "The Movie: The Game"]) # True
-# print get_secondary_connections(net, "Mercedes")
-# print count_common_connections(net, "Mercedes", "John")
-# print find_path_to_friend(net, "John", "Bryant")
-# print find_path_to_friend(net, "John", "Mercedes")
-# print find_path_to_friend(net, "John", "Ollie")
+def popularity_chart(network):
+    popularity = {}
+    for connection in network:
+        friends = len(get_connections(network, connection))
+        popularity[connection] = friends
+    print popularity
+    
+    sorted_connections = sorted(popularity, key=popularity.get)
+    sorted_connections.reverse()
+    
+    return sorted_connections
+    
+
+net = create_data_structure('')
+print net    
+net = create_data_structure(example_input)
+print net
+print get_connections(net, "Debra")
+print get_connections(net, "Mercedes")
+print get_games_liked(net, "John")
+print add_connection(net, "John", "Freda")
+print add_new_user(net, "Debra", []) 
+print add_new_user(net, "Nick", ["Seven Schemers", "The Movie: The Game"]) # True
+print get_secondary_connections(net, "Mercedes")
+print count_common_connections(net, "Mercedes", "John")
+print find_path_to_friend(net, "John", "Bryant")
+print find_path_to_friend(net, "John", "Mercedes")
+print find_path_to_friend(net, "John", "Ollie")
 
 
-# network = create_data_structure('')
-# network = add_new_user(network, 'Alice', [])
-# network = add_new_user(network, 'Bob', [])
-# network = add_connection(network, 'Alice', 'Bob')
+network = create_data_structure('')
+network = add_new_user(network, 'Alice', [])
+network = add_new_user(network, 'Bob', [])
+network = add_connection(network, 'Alice', 'Bob')
 
 network = create_data_structure(example_input)
 print get_games_liked(network, 'John')
 
-# print network
+print network
 
+network = create_data_structure(example_input)
+print popularity_chart(network)
